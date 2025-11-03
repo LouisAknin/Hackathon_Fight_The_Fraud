@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import requests
-from main import Message_analyzer
+from Back.app.main import Message_analyzer
 import pandas as pd
 
 app = Flask(__name__)

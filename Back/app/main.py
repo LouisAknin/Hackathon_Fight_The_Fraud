@@ -1,5 +1,5 @@
 def check_in_db(dict):
-    from base_sql import DatabaseManager
+    from Back.models.base_sql import DatabaseManager
     db = DatabaseManager("fraud_detection.db")
     if dict['contains_url']:
         for url in dict['found_urls']:
@@ -15,7 +15,7 @@ def check_in_db(dict):
                 return True
     return False
 def insert_message(dict):
-    from base_sql import DatabaseManager
+    from Back.models.base_sql import DatabaseManager
     db = DatabaseManager("fraud_detection.db")
     if dict['contains_url']:
         for url in dict['found_urls']:
@@ -36,7 +36,7 @@ class Message_analyzer:
         self.explanation_sentiment = ""
     
     def analyse(self): 
-        from sms_analyzer import SmsAnalyzer
+        from Back.detection.sms_analyzer import SmsAnalyzer
         from utils.sentiment_detection import sentiment_detection
         from utils.url_detection import url_detection
         #model = CatBoostClassifier()
@@ -70,7 +70,7 @@ class Message_analyzer:
         else:
             return "ham"
     def analyse_data_set(self): 
-        from sms_analyzer import SmsAnalyzer
+        from Back.detection.sms_analyzer import SmsAnalyzer
         from utils.sentiment_detection import sentiment_detection
         from utils.url_detection import url_detection
         
@@ -104,7 +104,7 @@ class Message_analyzer:
        
 if __name__ == "__main__":
     from tqdm import tqdm
-    from sms_analyzer import SmsDatasetAnalyzer
+    from Back.detection.sms_analyzer import SmsDatasetAnalyzer
     import pandas as pd
     dataset = pd.read_csv("dataset_sms.csv", header=0, low_memory=False)
     stat = [['good ham','bad ham','good spam','bad spam'],[0,0,0,0]]

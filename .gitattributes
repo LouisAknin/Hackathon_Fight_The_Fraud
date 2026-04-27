@@ -1,16 +1,16 @@
-# Exclude CSS and HTML from language statistics
+package-lock.json linguist-generated
+yarn.lock linguist-generated
+*.json linguist-generated
+
+# (Cela les cache des stats pour réduire le poids du TS)
+Front/**/*.d.ts linguist-vendored
+
 *.css linguist-detectable=false
 *.html linguist-detectable=false
 
-# Ensure TypeScript and React (TSX) files are primary
+*.py linguist-language=Python
 *.ts linguist-language=TypeScript
 *.tsx linguist-language=TypeScript
 
-# Ensure Python files are primary
-*.py linguist-language=Python
-
-# Exclude dependencies and generated files from counts
 **/node_modules/* linguist-vendored
 **/venv/* linguist-vendored
-**/build/* linguist-generated
-**/dist/* linguist-generated

@@ -1,0 +1,16 @@
+# Exclude CSS and HTML from language statistics
+*.css linguist-detectable=false
+*.html linguist-detectable=false
+
+# Ensure TypeScript and React (TSX) files are primary
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+
+# Ensure Python files are primary
+*.py linguist-language=Python
+
+# Exclude dependencies and generated files from counts
+**/node_modules/* linguist-vendored
+**/venv/* linguist-vendored
+**/build/* linguist-generated
+**/dist/* linguist-generated
